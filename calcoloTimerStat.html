@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>FORZA +1</button><span></span>
+
+
+
+
+
+    <script>
+        let btnForza = document.querySelector("button")
+        let btnTimer = document.querySelector("span")
+        let durataInSecondi = 3600;
+        let valDecrescente = durataInSecondi;
+        console.log(durataInSecondi);
+
+        btnForza.addEventListener("click", function calcoloTimer(durataInSecondi) {
+            btnForza.disabled = true;
+            
+            let ore = ~~(durataInSecondi / 3600);
+            let minuti = ~~((durataInSecondi % 3600) / 60);
+            let secondi = ~~durataInSecondi % 60;
+            let timer = setInterval(function () {
+                valDecrescente--
+
+                btnTimer.innerHTML = ` Timer: ${valDecrescente}`;
+                if (valDecrescente === 0) {
+                    clearInterval(timer)
+                    btnForza.disabled = false;
+                }
+            }, 1000)
+        });
+
+
+
+    </script>
+</body>
+
+</html>
